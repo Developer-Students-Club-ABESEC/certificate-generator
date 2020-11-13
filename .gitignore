@@ -1,4 +1,4 @@
-./python script
+./python
 ./static/result
 ./media
-./dbsqlite3
+./db.sqlite3
