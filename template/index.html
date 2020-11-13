@@ -14,7 +14,15 @@
     <section id="sec1">
         <input type='file' class="w3-display-middle" name='img' size='65' id='uploadimage' />
     </section>
-
+    <div id="forminput">
+    <form action="/generate" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="text" id="formimg" name="image">
+        <input type="text" name="key" value="{{secret}}">
+        <input type="text" id="config" name="config">
+    </form>
+    </div>
+    
     <section id="sec2" style="display: none;">
         <div class="instruction w3-padding w3-text-black">
             <h1 class="w3-center w3-text-blue">Instruction</h1>
@@ -40,7 +48,6 @@
                 </select>
                 <input type="text" id="coordinates" readonly class="w3-input w3-margin w3-border">
                 <input type="text" id="textfield" class="w3-input w3-margin" placeholder="Enter text">
-                <button id="rajat">click</button>
                 <button class="w3-btn w3-round w3-blue w3-margin w3-right" id="addpoint">Apply</button>
                 <button class="w3-btn w3-round w3-red w3-margin w3-right" onclick="$('#textmodal').hide()">Cancel</button>
             </div>
@@ -50,15 +57,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="{% static 'script.js' %}"></script>
 <script>
-$("#rajat").on("click",()=>{
-    alert($('#keys').find(":selected").text());
-});
-
+localStorage.setItem("key","{{secret}}");
 $("#generate").on("click",()=>{
-    var ctx = document.getElementById('canvas');
-    var data =  ctx.toDataURL("image/png");
-    var record = "{{record}}";
-})
+        temp = String(image);
+        $("#formimg").val(image);
+        $("#config").val(JSON.stringify(config));
+        $("#forminput form").submit();
+});
 </script>
 
 </html>

@@ -9,19 +9,17 @@ def genimage():
     
     draw = ImageDraw.Draw(image)
 
-    fontsize = int(input())
+    fontsize = 30
     
-    font = ImageFont.truetype('C:/Windows/Fonts/Calibri.ttf', size=fontsize)
-    
-
-    x, y= map(int,input("Enter the x and y corrdinate: ").split())
+    font = ImageFont.truetype('C:/Windows/Fonts/Calibri.ttf', size=fontsize)    
 
 
     color = 'rgb(255, 0, 0)'
-    
-    message = input("Enter your message: ")
-    draw.text((x, y), message, fill=color, font=font)
+    draw.text((23,45), "rajat", fill=color, font=font)   
     image.save("result.png")
+    draw.text((123, 145), "rajat@gmail.com", fill=color, font=font)   
+    image.save("result.png")
+    
 
 def readfiles(csvFilePath):
     data = {} 
@@ -38,7 +36,8 @@ def readfiles(csvFilePath):
             keylist.append(i)
     print(data,keylist,sep="\n")
 
-readfiles('records.csv')
+# readfiles('records.csv')
+genimage()
 
 
 

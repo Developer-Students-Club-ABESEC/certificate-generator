@@ -9,6 +9,9 @@ function getMousePosition(canvas, event) {
 }
 
 let canvasElem = document.querySelector("canvas");
+var config = {};
+var i=0;
+var image = "";
 
 canvasElem.addEventListener("mousedown", function (e) {
     getMousePosition(canvasElem, e);
@@ -24,8 +27,11 @@ url = window.URL || window.webkitURL,
 src = url.createObjectURL(f);
 
 img.src = src;
+
 img.onload = function() {
+
 ctx.drawImage(img, 0, 0,900,750);
+image = document.getElementById('canvas').toDataURL().replace('data:image/png;base64,', "");
 url.revokeObjectURL(src);
 }
 }
@@ -41,8 +47,8 @@ $("#addpoint").on("click",()=>{
     $("#textmodal").hide();
     $("#textfield").val("");
 });
-var config = {}
-    i = 0
+
+
     function insertrecord(x,y,text){
         temp = {}
          key = $('#keys').find(":selected").text();;
@@ -51,14 +57,8 @@ var config = {}
          temp["y"] =y;
         config[i] = temp;
         i+=1;
-        console.log(config);
     }
 
-btn = document.getElementById("generate");
-btn.onclick = function (){
-
-window.open(data);
-}
 
 document.getElementById("uploadimage").addEventListener("change", draw, false);
 
