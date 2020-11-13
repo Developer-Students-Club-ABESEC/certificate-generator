@@ -11,7 +11,6 @@
 </head>
 
 <body>
-
     <section id="sec1">
         <input type='file' class="w3-display-middle" name='img' size='65' id='uploadimage' />
     </section>
@@ -24,7 +23,7 @@
                 <li>One the model that appear select the text to be displayed</li>
                 <li>Press apply to save the poitnt</li>
                 <li>After you have done all the changes click on the Generate all button below.</li>
-            <./ol>
+            </ol>
             <button class="w3-btn w3-round w3-blue w3-block w3-display-bottommiddle" id="generate">Generate all</button>
         </div>
         <div class="result">
@@ -34,8 +33,14 @@
     <div class="w3-modal" id="textmodal">
         <div class="w3-modal-content w3-round w3-card w3-padding" style="width:500px;">
             <div class="w3-container">
+                <select name="keys" id="keys">
+                    {% for i in headers %}
+                    <option value="">{{i}}</option>
+                    {% endfor %}
+                </select>
                 <input type="text" id="coordinates" readonly class="w3-input w3-margin w3-border">
                 <input type="text" id="textfield" class="w3-input w3-margin" placeholder="Enter text">
+                <button id="rajat">click</button>
                 <button class="w3-btn w3-round w3-blue w3-margin w3-right" id="addpoint">Apply</button>
                 <button class="w3-btn w3-round w3-red w3-margin w3-right" onclick="$('#textmodal').hide()">Cancel</button>
             </div>
@@ -44,5 +49,16 @@
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="{% static 'script.js' %}"></script>
+<script>
+$("#rajat").on("click",()=>{
+    alert($('#keys').find(":selected").text());
+});
+
+$("#generate").on("click",()=>{
+    var ctx = document.getElementById('canvas');
+    var data =  ctx.toDataURL("image/png");
+    var record = "{{record}}";
+})
+</script>
 
 </html>

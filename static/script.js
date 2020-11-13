@@ -37,14 +37,26 @@ $("#addpoint").on("click",()=>{
     ctx.font = "30px Arial";
     text = $("#textfield").val();
     ctx.fillText(text,x,y);
+    insertrecord(x,y,text);
     $("#textmodal").hide();
     $("#textfield").val("");
-})
+});
+var config = {}
+    i = 0
+    function insertrecord(x,y,text){
+        temp = {}
+         key = $('#keys').find(":selected").text();;
+         temp["column"] = key;
+         temp["x"] = x;
+         temp["y"] =y;
+        config[i] = temp;
+        i+=1;
+        console.log(config);
+    }
 
 btn = document.getElementById("generate");
 btn.onclick = function (){
-var ctx = document.getElementById('canvas');
-var data =  ctx.toDataURL("image/png");
+
 window.open(data);
 }
 

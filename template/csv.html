@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Certificate generator
+    </title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+    <section id="sec1">
+        <form action="/readdata" class="w3-display-middle" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+        <input type='file' name='csv'  id='uploadcsv' />
+        <button class="w3-button w3-blue w3-round ">Upload</button>
+    </form>
+    </section>
+</body>
+</html>
