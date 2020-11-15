@@ -15,7 +15,7 @@
         <input type='file' class="w3-display-middle" name='img' size='65' id='uploadimage' />
     </section>
     <div id="forminput">
-    <form action="/generate" method="post" enctype="multipart/form-data">
+    <form action="/generate" style="display:none" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <input type="text" id="formimg" name="image">
         <input type="text" name="key" value="{{secret}}">
@@ -28,8 +28,8 @@
             <h1 class="w3-center w3-text-blue">Instruction</h1>
             <ol>
                 <li>Select a point on the output image</li>
-                <li>One the model that appear select the text to be displayed</li>
-                <li>Press apply to save the poitnt</li>
+                <li>On the model that appear select the point where text needs to be displayed</li>
+                <li>Press apply to save the points</li>
                 <li>After you have done all the changes click on the Generate all button below.</li>
             </ol>
             <button class="w3-btn w3-round w3-blue w3-block w3-display-bottommiddle" id="generate">Generate all</button>
@@ -63,6 +63,7 @@ $("#generate").on("click",()=>{
         $("#formimg").val(image);
         $("#config").val(JSON.stringify(config));
         $("#forminput form").submit();
+        localStorage.clear();
 });
 </script>
 

@@ -4,7 +4,7 @@ Certificate generator is a utility that helps you to generate a bulk of certific
 
 ## Installation
 
-From the root of the folder run the following command
+From the root of the project run the following command
 
 ```bash
 pip install -r requirements.txt
@@ -12,9 +12,11 @@ pip install -r requirements.txt
 
 ## Testing
 
-To test and run the project run the following commands from the root of the project.
+To test the project run the following commands from the root of the project.
 
 ```python
+python manage.py makemigrations
+python manage.py migrate
 python manage.py runserver
 ```
 Then goto 127.0.0.1:8000 to view the project.
@@ -25,8 +27,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## Flow of project
 <ol>
-<li>First upload csv
-<li>Return json data which contains all the column names.eg -> id, class, name, email, rank
+<li>First upload csv.
 <li>Upload template. 
 <li>Select point on image and map the coordinate with values such as column name, font size and color.
 <li>After the user selects all the points, generate a preview to show.

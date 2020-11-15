@@ -1,12 +1,12 @@
 from django.shortcuts import render,redirect,HttpResponse
 from PIL import Image, ImageDraw, ImageFont
-import os,csv,json,hashlib
-import base64
+import os,csv,json,hashlib,shutil,base64
 from datetime import datetime
 from .models import csvdata,saveimage
 from django.core.files.base import ContentFile
 
 # Create your views here.
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 def genkey():
     x = datetime.now()
     x = str(x)
@@ -53,6 +53,8 @@ def writeonimage(request):
     except:
         return HttpResponse("Some error occured. Please try again later")
     data = obj.details
+    resultpath="media/result"+key
+    os.mkdir(resultpath)
     for i in data.keys():
         img = Image.open(os.getcwd()+'/media/images/'+key+'.png')
         draw = ImageDraw.Draw(img)
@@ -65,9 +67,12 @@ def writeonimage(request):
             columnname = config[j]['column']
             message = data[i][columnname]
             draw.text((x, y), message, fill=color, font=font)
-            img.save(os.getcwd()+"/static/result/"+str(key)+str(i)+".png")
-    return HttpResponse("done")
+            img.save(resultpath+"/"+str(key)+str(i)+".png")
+    downloadpath =  shutil.make_archive("media/"+key,"zip",resultpath)
+    return render(request,"result.html",{"download":key})
 
+def result(request):
+    return render(request,"result.html")
 
 
 
