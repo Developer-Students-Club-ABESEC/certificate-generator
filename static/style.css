@@ -33,9 +33,69 @@ section {
     padding:30px;
 }
 
+.result #container {
+    position: absolute;
+    height: 595px;
+    width: 842px;
+    border: 2px solid #333;
+    background-color: teal;
+}
+
 .result canvas {
     position: absolute;
 }
 
+.objects {
+    position: absolute;
+    z-index: 10;
+}
 
+.clickable {
+    cursor: pointer;
+    font-weight: bolder;
+    background:#333;
+    color:#fff;
+    padding:2px;
+    opacity: 0;
+}
+.objects:hover .clickable {
+    opacity: 1;
+    
+}
 
+.close {
+    position: absolute;
+    right:0px;
+    background-color: red !important;
+    top:0px;
+    font-size: 16px;
+    border-radius: 100%;
+    transform: translate(15px,-20px);
+
+}
+
+.left {
+    position:absolute;
+    left:-20px;
+    top:50%;
+    transform: translateY(-50%);
+}
+.top {
+    position:absolute;
+    left:50%;
+    top:-20px;
+    transform: translateX(-50%);
+}
+.down {
+    position:absolute;
+    left:50%;
+    bottom:-20px;
+    margin-top:5px;
+    transform: translateX(-50%);
+}
+.right {
+    position:absolute;
+    right:-20px;
+    top:50%;
+    transform: translateY(-50%);
+}
