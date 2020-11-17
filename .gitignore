@@ -1,4 +1,2 @@
-./python
-./static/result
-./media
+./media/
 ./db.sqlite3
