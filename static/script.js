@@ -62,6 +62,9 @@ function move(id,side,val){
         config[id]['x'] = val;
 
     }
+    console.log(config);
+
+
 }
 
 function delelement(id){
