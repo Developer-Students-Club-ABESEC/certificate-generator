@@ -4,6 +4,9 @@ import os,csv,json,hashlib,shutil,base64
 from datetime import datetime
 from .models import csvdata,saveimage
 from django.core.files.base import ContentFile
+from django.contrib.auth.forms import UserCreationForm
+from django.urls import reverse_lazy
+from django.views import generic
 
 # Create your views here.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -74,7 +77,10 @@ def writeonimage(request):
 def result(request):
     return render(request,"result.html")
 
-
+class SignUpView(generic.CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy('login')
+    template_name = 'registration/signup.html'
 
 
  
