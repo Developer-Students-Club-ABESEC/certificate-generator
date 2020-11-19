@@ -25,7 +25,7 @@ SECRET_KEY = 'ruyj-9%$gcl%j%&57a-odp1-l@0aomrgh-z1t0omzbbas$jb87'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 # ALLOWED_HOSTS = ['easyfiles.pythonanywhere.com']
 
 
