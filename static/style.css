@@ -99,3 +99,10 @@ section {
     top:50%;
     transform: translateY(-50%);
 }
+
+.box {
+    width:20px;
+    height:20px;
+    position: absolute;
+    margin-right:5px;
+}

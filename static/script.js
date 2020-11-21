@@ -37,9 +37,9 @@ url.revokeObjectURL(src);
 }
 
 
-function imageobject(id,size,color,x,y,text){
+function imageobject(id,size,color,x,y,font,text){
     var element = '<div class="objects" id="'+id+'" style="top:'+y+'px;left:'+x+'px">'+
-            '<span class="w3-text-black" style="font-size: 30px;">'+ text+'</span>'+
+            '<span style="font-size:'+ size+'px;font-family:'+font+';color:'+color+';">'+ text+'</span>'+
                 '<span onclick="'+"delelement("+id+")"+'" class="clickable close">&times</span>'+
                 '<i onclick="'+"move("+id+",'left',-1)"+'"class="clickable left fa fa-angle-left" style="font-size:24px"></i>'+
                 '<i onclick="'+"move("+id+",'top',-1)"+'" class="clickable top fa fa-angle-up" style="font-size:24px"></i>'+
@@ -75,7 +75,7 @@ function delelement(id){
         config[j] = config[j+1];
         $("#"+j).remove();
         if(config[j]!=null){
-        imageobject(j,30,"red",Number(config[j]["x"]),Number(config[j]["y"])+20,config[j]["text"]);
+        imageobject(j,config[j]["size"],config[j]["color"],Number(config[j]["x"]),Number(config[j]["y"])+20,config[j]["style"],config[j]["text"]);
         }
     }
     delete config[i];
@@ -85,23 +85,29 @@ $("#addpoint").on("click",()=>{
     x = localStorage.getItem("x");
     y = localStorage.getItem("y");
     var ctx = document.getElementById("canvas").getContext("2d");
-    ctx.font = "30px Arial";
+    font = $('#fonts').find(":selected").text();
+    size =  $('#fontsize').find(":selected").text();
+    ctx.font = size +"px "+font;
     text = $("#textfield").val();
-    imageobject(i,30,"red",x,y-10,text);
+    color = $('#color').find(":selected").val();
+    imageobject(i,size,color,x,y-10,font,text);
     //ctx.fillText(text,x,y);
-    insertrecord(x,y-30,text);
+    insertrecord(x,y-30,color,size,font,text);
     $("#textmodal").hide();
     $("#textfield").val("");
 });
 
 
-    function insertrecord(x,y,text){
+    function insertrecord(x,y,color,fontsize,fontstyle,text){
         temp = {}
          key = $('#keys').find(":selected").text();
          temp["text"] = text;
          temp["column"] = key;
          temp["x"] = x;
          temp["y"] =y;
+         temp["color"] = color;
+         temp["size"] = fontsize
+         temp["style"] = fontstyle
         config[i] = temp;
         i+=1;
     }

@@ -50,6 +50,19 @@
                     <option value="">{{i}}</option>
                     {% endfor %}
                 </select>
+                <select name="fonts" id="fonts">
+                    {% for i in fonts %}
+                <option value="" style="font-style:'{{i}}'">{{i}}</option>
+                    {% endfor %}
+                </select>
+                <select name="color" id="color">
+                    <option value="rgb(0,0,0)" style="color: black;"><span style="color:Black"><div class="box"></div> Black</span></option>
+                    <option value="rgb(255,0,0)" style="color:red"><span style="color:Black"><div class="box"></div>Red</span></option>
+                    <option value="rgb(0,255,0)" style="color: green;"><span style="color:Black"><div class="box"></div>Green</span></option>
+                    <option value="rgb(0,0,255)" style="color: blue;"><span style="color:Black"><div class="box"></div>Blue</span></option>
+                </select>
+                <select name="fontsize" id="fontsize">
+                </select>
                 <input type="text" id="coordinates" readonly class="w3-input w3-margin w3-border">
                 <input type="text" id="textfield" class="w3-input w3-margin" placeholder="Enter text">
                 <button class="w3-btn w3-round w3-blue w3-margin w3-right" id="addpoint">Apply</button>
@@ -62,6 +75,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="{% static 'script.js' %}"></script>
 <script>
+    window.addEventListener("load",()=>{
+        for(counter=10;counter<72;counter+=2){
+            $("#fontsize").append("<option>"+counter+"</option>");
+        }
+    });
     localStorage.setItem("key", "{{secret}}");
     $("#generate").on("click", () => {
         temp = String(image);

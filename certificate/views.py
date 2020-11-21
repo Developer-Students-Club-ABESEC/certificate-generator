@@ -2,17 +2,22 @@ from django.shortcuts import render,redirect,HttpResponse
 from PIL import Image, ImageDraw, ImageFont
 import os,csv,json,hashlib,shutil,base64
 from datetime import datetime
-from .models import csvdata,saveimage
+from .models import csvdata,saveimage,fonts
 from django.core.files.base import ContentFile
 
 # Create your views here.
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 def genkey():
     x = datetime.now()
     x = str(x)
     name = int(hashlib.sha256(x.encode('utf-8')).hexdigest(), 16) % 10**8
     return str(name)
 
+
+def dispfonts():
+    lis = fonts.objects.values_list("name",flat=True)
+    return lis
+
+dispfonts()
 def index(request):
     return render(request,"csv.html")
 
@@ -35,7 +40,8 @@ def readata(request):
     print(key)
     obj = csvdata.objects.create(key=key,details=response)
     obj.save()
-    return render(request,"index.html",{"secret":key,"headers":keys})
+    fonts = dispfonts()
+    return render(request,"index.html",{"secret":key,"headers":keys,"fonts":fonts})
 
     
 
@@ -58,14 +64,17 @@ def writeonimage(request):
     for i in data.keys():
         img = Image.open(os.getcwd()+'/media/images/'+key+'.png')
         draw = ImageDraw.Draw(img)
-        fontsize = 30
-        font = ImageFont.truetype('C:/Windows/Fonts/Calibri.ttf', size=fontsize)
-        color = 'rgb(0,0,0)'
         for j in config.keys():
             x = int(config[j]['x'])
             y = int(config[j]['y'])
             columnname = config[j]['column']
             message = data[i][columnname]
+            fontsize = int(config[j]['size'])
+            fontstyle = config[j]['style']
+            color = config[j]['color']
+            obj = fonts.objects.get(name=fontstyle)
+            path = obj.path
+            font = ImageFont.truetype(path, size=fontsize)
             draw.text((x, y), message, fill=color, font=font)
             img.save(resultpath+"/"+str(key)+str(i)+".png")
     downloadpath =  shutil.make_archive("media/"+key,"zip",resultpath)
@@ -74,7 +83,19 @@ def writeonimage(request):
 def result(request):
     return render(request,"result.html")
 
+def addfont():
+    folder  = "./fonts/font"
+    disp = []
+    if(os.path.exists(folder)):
+        lis = os.listdir(folder)
+        for i in lis:
+            try:
+                name,extension = i.split(".")
+                obj = fonts.objects.create(name=name,path=folder+"/"+str(i))
+                obj.save()
+                print("added "+i)
+            except:
+                pass
 
-
-
- 
+def temp(request):
+    return render(request,"index.html")
