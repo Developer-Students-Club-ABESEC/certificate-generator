@@ -1,0 +1,90 @@
+{% extends "csv.html" %}
+{% load static %}
+
+
+    {% block title %}
+    <title>
+        Certificate generator
+    </title>
+    {% endblock %}
+
+    {% block content %}
+    <section id="sec1">
+        <input type='file' class="w3-display-middle" name='img' size='65' id='uploadimage' />
+    </section>
+    <div id="forminput">
+        <form action="/generate" style="display:none" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="text" id="formimg" name="image">
+            <input type="text" name="key" value="{{secret}}">
+            <input type="text" id="config" name="config">
+        </form>
+    </div>
+
+    <section id="sec2" style="display: none;">
+        <div class="instruction w3-padding w3-text-black">
+            <h1 class="w3-center w3-text-blue">Instruction</h1>
+            <ol>
+                <li>Select a point on the output image</li>
+                <li>On the model that appear select the point where text needs to be displayed</li>
+                <li>Press apply to save the points</li>
+                <li>After you have done all the changes click on the Generate all button below.</li>
+            </ol>
+            <button class="w3-btn w3-round w3-blue w3-block w3-display-bottommiddle" id="generate">Generate all</button>
+        </div>
+        <div class="result">
+            <div id="container">
+                <canvas id="canvas" class="w3-center" width="842" height="595" style="border:3px solid black">Loading
+                    Image....</canvas>
+            </div>
+        </div>
+    </section>
+    <div class="w3-modal" id="textmodal">
+        <div class="w3-modal-content w3-round w3-card w3-padding" style="width:500px;">
+            <div class="w3-container">
+                <select name="keys" id="keys">
+                    {% for i in headers %}
+                    <option value="">{{i}}</option>
+                    {% endfor %}
+                </select>
+                <select name="fonts" id="fonts">
+                    {% for i in fonts %}
+                <option value="" style="font-style:'{{i}}'">{{i}}</option>
+                    {% endfor %}
+                </select>
+                <select name="color" id="color">
+                    <option value="rgb(0,0,0)" style="color: black;"><span style="color:Black"><div class="box"></div> Black</span></option>
+                    <option value="rgb(255,0,0)" style="color:red"><span style="color:Black"><div class="box"></div>Red</span></option>
+                    <option value="rgb(0,255,0)" style="color: green;"><span style="color:Black"><div class="box"></div>Green</span></option>
+                    <option value="rgb(0,0,255)" style="color: blue;"><span style="color:Black"><div class="box"></div>Blue</span></option>
+                </select>
+                <select name="fontsize" id="fontsize">
+                </select>
+                <input type="text" id="coordinates" readonly class="w3-input w3-margin w3-border">
+                <input type="text" id="textfield" class="w3-input w3-margin" placeholder="Enter text">
+                <button class="w3-btn w3-round w3-blue w3-margin w3-right" id="addpoint">Apply</button>
+                <button class="w3-btn w3-round w3-red w3-margin w3-right"
+                    onclick="$('#textmodal').hide()">Cancel</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{% static 'script.js' %}"></script>
+<script>
+    window.addEventListener("load",()=>{
+        for(counter=10;counter<72;counter+=2){
+            $("#fontsize").append("<option>"+counter+"</option>");
+        }
+    });
+    localStorage.setItem("key", "{{secret}}");
+    $("#generate").on("click", () => {
+        temp = String(image);
+        $("#formimg").val(image);
+        $("#config").val(JSON.stringify(config));
+        $("#forminput form").submit();
+        localStorage.clear();
+    });
+</script>
+{% endblock %}
+</html>

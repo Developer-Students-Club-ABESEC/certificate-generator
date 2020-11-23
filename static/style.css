@@ -4,14 +4,28 @@
     box-sizing: border-box;
 }
 
+.nav {
+    position:fixed;
+    top:0px;
+    height:50px;
+    z-index: 1000;
+    box-shadow: 3px 0px 25px 3px #000 ;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+}
+
 section {
-    height: 100vh;
-    width:100vh;
+    position: fixed;
+    top:50px;
+    height: calc(100% - 50px);
+    width:100%;
 }
 
 .instruction {
     height: 100%;
-    position: fixed;
+    position: absolute;
     right:0px;
     margin:0px;
     width:300px;
@@ -25,12 +39,12 @@ section {
     font-size: 20px;
 }
 .result {
-    position: fixed;
-    height:100%;
+    position: absolute;
+    height:100%;    
     width:calc(100%-300px);
     top:0px;
     left:0px;
-    padding:30px;
+
 }
 
 .result #container {

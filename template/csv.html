@@ -1,26 +1,24 @@
+
 {% load static %}
 <!DOCTYPE html>
 <html>
 
 <head>
+    {% block title %}
     <title>
         Certificate generator
     </title>
+    {% endblock %}  
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
+    <div class="nav w3-padding w3-indigo">
+    <span style="color:azure; font-size: 20px; font-weight:bold;font-family: 'Courier New', Courier, monospace;text-transform: capitalize;" > Hi {{ user.username }}!</span>
+    <button class="w3-btn w3-pale-red w3-round-large"><a style="text-decoration: none;" href="{% url 'logout' %}">Log Out <i class="fa fa-arrow-right"></i></a></button>
+    </div>
 {% block content %}
-{% if user.is_authenticated %}
-  Hi {{ user.username }}!
-  <p><a href="{% url 'logout' %}">Log Out</a></p>
-  <p><a href="{% url 'password_reset' %}">Reset Password</a></p>
-{% else %}
-  <p>You are not logged in</p>
-  <a href="{% url 'login' %}">Log In</a>
-  <a href="{% url 'signup' %}">Sign up</a>
-{% endif %}
-{% endblock %}
     <section id="sec1">
         <form action="/readdata" class="w3-display-middle" method="post" enctype="multipart/form-data">
             {% csrf_token %}
@@ -28,5 +26,6 @@
         <button class="w3-button w3-blue w3-round ">Upload</button>
     </form>
     </section>
+    {% endblock %}
 </body>
 </html>

@@ -8,6 +8,5 @@ urlpatterns = [
     path('readdata',views.readata,name="Read from csv"),
     path("generate",views.writeonimage,name="start writing"),
     path("result",views.result,name='result'),
-    path("temp",views.temp,name="temp"),
     path('accounts/signup/', SignUpView.as_view(), name='signup'),
 ]

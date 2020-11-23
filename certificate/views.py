@@ -20,9 +20,12 @@ def dispfonts():
     lis = fonts.objects.values_list("name",flat=True)
     return lis
 
-dispfonts()
 def index(request):
-    return render(request,"csv.html")
+    if(request.user.is_authenticated):
+        return render(request,"csv.html")
+    else:
+        return render(request,"index.html")
+        
 
 def readata(request):
     csvFilePath = request.FILES["csv"]
@@ -44,7 +47,7 @@ def readata(request):
     obj = csvdata.objects.create(key=key,details=response)
     obj.save()
     fonts = dispfonts()
-    return render(request,"index.html",{"secret":key,"headers":keys,"fonts":fonts})
+    return render(request,"canvas.html",{"secret":key,"headers":keys,"fonts":fonts})
 
     
 
@@ -100,10 +103,10 @@ def addfont():
             except:
                 pass
 
-def temp(request):
-    return render(request,"index.html")
+
 
 class SignUpView(generic.CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy('login')
     template_name = 'registration/signup.html'
+
