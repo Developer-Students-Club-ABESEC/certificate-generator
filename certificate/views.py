@@ -4,6 +4,9 @@ import os,csv,json,hashlib,shutil,base64
 from datetime import datetime
 from .models import csvdata,saveimage,fonts
 from django.core.files.base import ContentFile
+from django.contrib.auth.forms import UserCreationForm
+from django.urls import reverse_lazy
+from django.views import generic
 
 # Create your views here.
 def genkey():
@@ -99,3 +102,8 @@ def addfont():
 
 def temp(request):
     return render(request,"index.html")
+
+class SignUpView(generic.CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy('login')
+    template_name = 'registration/signup.html'

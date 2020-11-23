@@ -13,6 +13,16 @@
     <title>Result</title>
 </head>
 <body>
-    <a class="w3-btn w3-blue w3-display-middle w3-padding" href="/media/{{download}}.zip"><h2><i class="fa fa-download" style="font-size:24px"></i>  Download Result</h2></a>
+{% block content %}
+{% if user.is_authenticated %}
+  Hi {{ user.username }}!
+  <p><a href="{% url 'logout' %}">Log Out</a></p>
+   <a class="w3-btn w3-blue w3-display-middle w3-padding" href="/media/{{download}}.zip"><h2><i class="fa fa-download" style="font-size:24px"></i>  Download Result</h2></a>
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">Log In</a>
+{% endif %}
+{% endblock %}
+   
 </body>
 </html>

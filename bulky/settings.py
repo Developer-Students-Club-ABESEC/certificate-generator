@@ -25,7 +25,7 @@ SECRET_KEY = 'ruyj-9%$gcl%j%&57a-odp1-l@0aomrgh-z1t0omzbbas$jb87'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 # ALLOWED_HOSTS = ['easyfiles.pythonanywhere.com']
 
 
@@ -72,7 +72,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'bulky.wsgi.application'
 
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
