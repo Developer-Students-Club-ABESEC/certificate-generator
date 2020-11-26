@@ -16,10 +16,6 @@ def genkey():
     return str(name)
 
 
-def dispfonts():
-    lis = fonts.objects.values_list("name",flat=True)
-    return lis
-
 def index(request):
     if(request.user.is_authenticated):
         return render(request,"csv.html")
@@ -46,8 +42,8 @@ def readata(request):
     print(key)
     obj = csvdata.objects.create(key=key,details=response)
     obj.save()
-    fonts = dispfonts()
-    return render(request,"canvas.html",{"secret":key,"headers":keys,"fonts":fonts})
+    fontfiles = fonts.objects.all()
+    return render(request,"canvas.html",{"secret":key,"headers":keys,"fonts":fontfiles})
 
     
 
@@ -90,19 +86,15 @@ def result(request):
     return render(request,"result.html")
 
 def addfont():
-    folder  = "./fonts/font"
+    folder  = "./static/font"
     disp = []
     if(os.path.exists(folder)):
         lis = os.listdir(folder)
         for i in lis:
-            try:
                 name,extension = i.split(".")
                 obj = fonts.objects.create(name=name,path=folder+"/"+str(i))
                 obj.save()
                 print("added "+i)
-            except:
-                pass
-
 
 
 class SignUpView(generic.CreateView):

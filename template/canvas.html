@@ -6,6 +6,14 @@
     <title>
         Certificate generator
     </title>
+    <style>
+        {% for i in fonts %}
+            @font-face {
+          font-family: '{{i.name}}';
+          src: url('{{i.path}}');
+        }
+        {% endfor %}
+        </style>
     {% endblock %}
 
     {% block content %}
@@ -49,7 +57,7 @@
                 </select>
                 <select name="fonts" id="fonts">
                     {% for i in fonts %}
-                <option value="" style="font-style:'{{i}}'">{{i}}</option>
+                <option value="" style="font-family:'{{i.name}}'">{{i.name}}</option>
                     {% endfor %}
                 </select>
                 <select name="color" id="color">
