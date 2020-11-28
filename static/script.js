@@ -89,7 +89,12 @@ $("#addpoint").on("click",()=>{
     size =  $('#fontsize').find(":selected").text();
     ctx.font = size +"px "+font;
     text = $("#textfield").val();
-    color = $('#color').find(":selected").val();
+    // color = $('#color').find(":selected").val();
+    const color_get = $('#color').val();
+    const r = parseInt(color_get.substr(1,2), 16);
+    const g = parseInt(color_get.substr(3,2), 16);
+    const b = parseInt(color_get.substr(5,2), 16);
+    let color = `rgb(${r},${g},${b})`;
     imageobject(i,size,color,x,y-10,font,text);
     //ctx.fillText(text,x,y);
     insertrecord(x,y-30,color,size,font,text);
