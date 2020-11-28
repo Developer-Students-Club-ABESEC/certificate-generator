@@ -26,6 +26,8 @@ def index(request):
 def readata(request):
     csvFilePath = request.FILES["csv"]
     file_data = csvFilePath.read().decode("utf-8")
+    file_data = file_data.strip("\n")
+    file_data = file_data.strip(" ")
     data = file_data.split("\n")
     keys = data[0].split(",")
     keys[-1] = keys[-1][:-1]
