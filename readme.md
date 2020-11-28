@@ -72,11 +72,11 @@ Rajat Shrivastava
 Shreyansh Shukla
 
 <p align="center">
-<img src = "https://i.ibb.co/rkkz9hm/DSC-Logo.png" width="`180" height="150" alt="Shreyansh Shukla">
+<img src = "https://avatars0.githubusercontent.com/u/50966899?s=400&u=8ea203aa0e294766d55c7251344b3cd5fc3d997e&v=4" width="`180" height="150" alt="Shreyansh Shukla">
 </p>
 <p align="center">
-<a href = "https://github.com/person2"><img src = "http://www.iconninja.com/files/241/825/211/round-collaboration-social-github-code-circle-network-icon.svg" width="36" height = "36" alt="GitHub"/></a>
-<a href = "https://www.linkedin.com/in/person2">
+<a href = "https://github.com/shreyansh-05"><img src = "http://www.iconninja.com/files/241/825/211/round-collaboration-social-github-code-circle-network-icon.svg" width="36" height = "36" alt="GitHub"/></a>
+<a href = "https://www.linkedin.com/in/shreyansh-shukla-38842b187/">
 <img src = "http://www.iconninja.com/files/863/607/751/network-linkedin-social-connection-circular-circle-media-icon.svg" width="36" height="36" alt="LinkedIn"/>
 </a>
 </p>

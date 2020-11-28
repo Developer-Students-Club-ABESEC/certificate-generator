@@ -6,29 +6,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Registration</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="{% static 'vendor/fontawesome-free/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendor/simple-line-icons/css/simple-line-icons.css' %}">
     <link rel="stylesheet" href="{% static 'signup_styles.min.css' %}">
+    <link rel="stylesheet" href="{% static 'device-mockups/device-mockups.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/new-age.min.css' %}" >
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
 </head>
 
 <body>
-    <!-- Start: Registration Form with Photo -->
+    
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+          <a class="navbar-brand js-scroll-trigger" href="https://github.com/Developer-Students-Club-ABESEC">DSC ABESEC</a>
+          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="https://dsc.community.dev/abes-engineering-college/">Our Team</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+    <header class="masthead">
     <div class="register-photo">
-        <!-- Start: Form Container -->
         <div class="form-container">
-            <!-- Start: Image -->
             <div class="image-holder"></div>
-            <!-- End: Image -->
             <form method="post">
              {% csrf_token %}
-                <h2 class="text-center"><strong>Create</strong> an account.</h2>
+                <h2 class="text-center" id="a1">Create an account.</h2>
                 {{ form.as_table }}
                 <div class="form-group">
                     <div class="form-check"><label class="form-check-label"><input class="form-check-input" type="checkbox">I agree to the license terms.</label></div>
                 </div>
                 <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Sign Up</button></div><a class="already" href="{% url 'login' %}">You already have an account? Login here.</a></form>
         </div>
-        <!-- End: Form Container -->
     </div>
-    <!-- End: Registration Form with Photo -->
+    </header>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 </body>

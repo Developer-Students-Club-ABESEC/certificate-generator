@@ -13,19 +13,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
-<body>
-    <div class="nav w3-padding w3-indigo">
+<body >
+    <div style="background:url(static/img/bg-pattern.png),#7b4397;background:url(static/img/bg-pattern.png),linear-gradient(to left,#7b4397,#dc2430);" class="nav w3-padding">
     <span style="color:azure; font-size: 20px; font-weight:bold;font-family: 'Courier New', Courier, monospace;text-transform: capitalize;" > Hi {{ user.username }}!</span>
+    <a style="color: black;font-size: 15pt;" href="https://dsc.community.dev/abes-engineering-college/">DSC ABESEC</a>
     <button class="w3-btn w3-pale-red w3-round-large"><a style="text-decoration: none;" href="{% url 'logout' %}">Log Out <i class="fa fa-arrow-right"></i></a></button>
     </div>
-{% block content %}
-    <section id="sec1">
-        <form action="/readdata" class="w3-display-middle" method="post" enctype="multipart/form-data">
+    
+
+
+    <section  style="background:url(static/img/bg-pattern.png),#7b4397;background:url(static/img/bg-pattern.png),linear-gradient(to left,#7b4397,#dc2430);" id="sec1" ></section>
+    {% block content %}
+    <form action="/readdata" class="w3-display-middle" method="post" enctype="multipart/form-data">
             {% csrf_token %}
         <input type='file' name='csv'  id='uploadcsv' />
         <button class="w3-button w3-blue w3-round ">Upload</button>
     </form>
-    </section>
     {% endblock %}
+    </section>
+    
 </body>
 </html>

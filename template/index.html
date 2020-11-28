@@ -1,20 +1,187 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certificate Generator</title>
-    <link rel="stylesheet" href="{% static 'w3css.css' %}">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Certificate generator</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendor/fontawesome-free/css/all.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendor/simple-line-icons/css/simple-line-icons.css' %}">
+  <link rel="stylesheet" href="{% static 'device-mockups/device-mockups.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/new-age.min.css' %}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli">
+  
 </head>
-<body>
-<div class="container w3-display-middle w3-center">
-  <h1 class="w3-title">Certificate Generator</h1>
-  <h3>Generate bulk Certificates in three clicks !</h3>
-  <span style="margin-top:20px;">
-  <button class="w3-btn w3-padding w3-green w3-round-large"><a style="text-decoration: none;" href="{% url 'login' %}">Log In</a></button>
-  <button class="w3-btn w3-blue-grey w3-padding w3-round-large"><a style="text-decoration: none;" href="{% url 'signup' %}">Sign up</a></button>
-</span>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="https://github.com/Developer-Students-Club-ABESEC">DSC ABESEC</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="https://dsc.community.dev/abes-engineering-college/">Our Team</a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="masthead">
+    <div class="container h-100">
+      <div class="row h-100">
+        <div class="col-lg-7 my-auto">
+          <div class="header-content mx-auto">
+            
+            <h4>Steps to generate -</br></br>
+              1) Upload the csv file.</br></br>
+              2) Upload the template of certificate</br></br>
+              3) Select point on image and map the coordinate with values such as column name, font size and color.</br></br>
+              4) After the user selects all the points, generate a preview to show.</br></br>
+              5) User verifies the preview and click on the generate all.</br></br>
+              6) All the data is sent to the backend and certificates will be generated.</br></br>
+              7) We will provide an option to either mail the certificate or download the files.</br></br>
+              </h4>
+            
+          </div>
+        </div>
+        <div class="col-lg-5 my-auto">
+          <div class="device-container">
+            <a class="btn btn-outline btn-xl js-scroll-trigger">Start Now for Free!</a>
+          </br></br>
+            <a href="{% url 'login' %}" class="btn btn-outline btn-xl js-scroll-trigger">Login</a>
+          </br></br>
+            <a href="{% url 'signup' %}" class="btn btn-outline btn-xl js-scroll-trigger">Signup</a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+ <div id ="down">
+  <section class="features" id="features">
+    <div class="container">
+      
+      <div class="row">
+        <div class="col-lg-4 my-auto">
+          <div class="section-heading">
+            <h2>Cool Features!!</h2>
+            <p class="text-muted">Check out what you can do with this certificate generator!</p>
+            <hr>
+          </div>
+        </div>
+        <div class="col-lg-8 my-auto">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="feature-item">
+                  <i class="icon-present text-primary"></i>
+                  <h3>Free to Use</h3>
+                  <p class="text-muted">The service is free to a great extent and thus proves to be useful!!</p>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="feature-item">
+                  <i class="icon-lock text-primary"></i>
+                  <h3>Secure</h3>
+                  <p class="text-muted">All your files are secure and nobody else can acess it!!</p>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="feature-item">
+                  <i class="icon-camera text-primary"></i>
+                  <h3>Flexible Use</h3>
+                  <p class="text-muted">You can upload the certificate in any format!!</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <section class="contact bg-primary" id="contact">
+    <div class="container">
+      <h2>Let's get social!</h2>
+      <ul class="list-inline list-social">
+        <li class="list-inline-item social-twitter">
+          <a href="#">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </li>
+        <li class="list-inline-item social-facebook">
+          <a href="#">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+        </li>
+        <li class="list-inline-item social-google-plus">
+          <a href="https://www.instagram.com/dsc_abesec/">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </li>
+        <li class="list-inline-item social-facebook">
+          <a href="https://www.linkedin.com/company/dsc-abesec">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </li>
+        
+      </ul>
+    </div>
+  </section>
 </div>
+  <footer>
+    <div class="container">
+      <p>&copy; DSC ABESEC 2020. All Rights Reserved.</p>
+      <!--
+      <ul class="list-inline">
+        <li class="list-inline-item">
+          <a href="#">Privacy</a>
+        </li>
+        <li class="list-inline-item">
+          <a href="#">Terms</a>
+        </li>
+        <li class="list-inline-item">
+          <a href="#">FAQ</a>
+        </li>
+      </ul>
+    -->
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'vendor/jquery/jquery.min.js'%}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js'%}"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="{% static 'js/new-age.min.js' %}"></script>
+
 </body>
+
 </html>
