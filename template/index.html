@@ -11,6 +11,38 @@
       text-align: center;
       transform: translate(-50%, -50%);
     }
+
+    .w3-card i {
+      background-color: #3b5998;
+      width:70px;
+      height:70px;
+      font-size: 30px;
+      border-radius: 100%;
+      padding:20px;
+      color: #fff;
+    }
+
+    .w3-card i :hover {
+      background-color: #344e86;
+    }
+
+    .workicon .text {
+      color: #333;
+      font-size: 20px;
+      line-height: 5px !important;
+      font-weight: bold;
+      font-family: 'Courier New', Courier, monospace;
+    }
+    .w3-card{
+      width: calc(25% -16px);
+      flex : 0 0 20% !important;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+    .w3-card:hover {
+      background-color: rgb(228, 220, 220) !important;
+      transform: translate3d(40px);
+    }
   </style>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -22,6 +54,7 @@
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
   <link rel="stylesheet" href="{% static 'vendor/fontawesome-free/css/all.min.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="{% static 'vendor/simple-line-icons/css/simple-line-icons.css' %}">
   <link rel="stylesheet" href="{% static 'device-mockups/device-mockups.min.css' %}">
   <link rel="stylesheet" href="{% static 'css/new-age.min.css' %}">
@@ -37,7 +70,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="https://github.com/Developer-Students-Club-ABESEC">DSC ABESEC</a>
+      <a class="navbar-brand js-scroll-trigger" href="https://github.com/Developer-Students-Club-ABESEC"><img src="https://i.ibb.co/3SQDQgM/DSC-ABES-Engineering-College-Light-Horizontal-Logo.png" alt="DSC-ABES-Engineering-College-Light-Horizontal-Logo" width="300" height="50" border="0"></a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
         data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
         aria-label="Toggle navigation">
@@ -69,7 +102,7 @@
 
             <h1>Certificate Generator</h1>
             <h3>Generate bulk certificates with just three clicks.</h3>
-            <a class="btn btn-outline btn-xl js-scroll-trigger">Start Now for Free!</a>
+            <a class="btn btn-outline btn-xl js-scroll-trigger" href="{% url 'login' %}">Get Started</a>
             <a class="btn btn-outline btn-xl js-scroll-trigger" href="#section2">How it Works? </a>
           </div>
         </div>
@@ -83,45 +116,42 @@
       </div>
     </div>
   </header>
-  <header class="masthead" id="section2" style="background: rgba(109, 107, 107,0.5); color: #333;">
-    <div class="container h-100">
-      <div class="row h-100">
-        <h1 class="col w3-center">How it Works</h1>
-        <div class="col-lg-7 inmiddle">
-          1) Upload the csv file.</br></br>
-          2) Upload the template of certificate</br></br>
-          3) Select point on image and map the coordinate with values such as column name, font size and
-          color.</br></br>
-          4) After the user selects all the points, generate a preview to show.</br></br>
-          5) User verifies the preview and click on the generate all.</br></br>
-          6) All the data is sent to the backend and certificates will be generated.</br></br>
-          7) We will provide an option to either mail the certificate or download the files.</br></br>
-          </h4>
-          <div class="w3-card-4 w3-white w3-round">
-            <h2 class="number w3-lg">1.</h2>
-            <h3 class="w3-title"> Upload the csv file.</h3>
-          </div>
-          <div class="w3-card-4 w3-white w3-round">
-            <h2 class="number w3-lg">2.</h2>
-            <h3 class="w3-title"> Upload the certifcate template.</h3>
-          </div>
 
-        <div class="w3-card-4 w3-white w3-round">
-          <h2 class="number w3-lg">2.</h2>
-          <h3 class="w3-title">Select point on image and map the coordinate with values such as column name, font size and
-            color.</h3>
-        </div>
-        <div class="w3-card-4 w3-white w3-round">
-          <h2 class="number w3-lg">2.</h2>
-          <h3 class="w3-title">Verify the sample image and c</h3>
-        </div>
-
-
-      </div>
-    </div>
-    </div>
-  </header>
   <div id="down">
+
+    <section class="contact bg-primary" style="height: 100vh;" id="section2">
+      <div class="container">
+        <h2>How it works?</h2>
+        <div class="container" style="margin-top: 50px;">
+            <div class="row" style="justify-content: space-evenly; width: 100%;">
+              <div class="w3-card w3-white w3-padding-32 w3-round col-lg-3">
+                <div class="feature-item">
+                  <i class="fa fa-cloud-upload"></i>
+                  <h3 class="text">Upload CSV File containing records</h3>
+                </div>
+              </div>
+              <div class="w3-card w3-white w3-padding-32 w3-round col-lg-3">
+                <div class="feature-item">
+                  <i class="fa fa-file-image-o"></i>
+                  <h3 class="text">Upload certificate template</h3>
+                </div>
+              </div>
+              <div class="w3-card w3-white w3-padding-32 w3-round col-lg-3">
+                <div class="feature-item">
+                  <i class="fa fa-object-ungroup"></i>
+                  <h3 class="text">Select points on the image</h3>
+                </div>
+              </div>
+              <div class="w3-card w3-white w3-padding-32 w3-round col-lg-3">
+                <div class="feature-item">
+                  <i class="fa fa-cloud-download"></i>
+                  <h3 class="text">Download your result  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </section>
     <section class="features" id="features">
       <div class="container">
 
@@ -202,19 +232,6 @@
   <footer>
     <div class="container">
       <p>&copy; DSC ABESEC 2020. All Rights Reserved.</p>
-      <!--
-      <ul class="list-inline">
-        <li class="list-inline-item">
-          <a href="#">Privacy</a>
-        </li>
-        <li class="list-inline-item">
-          <a href="#">Terms</a>
-        </li>
-        <li class="list-inline-item">
-          <a href="#">FAQ</a>
-        </li>
-      </ul>
-    -->
     </div>
   </footer>
 
