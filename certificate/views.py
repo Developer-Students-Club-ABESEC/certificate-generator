@@ -74,6 +74,7 @@ def writeonimage(request):
             fontsize = int(config[j]['size'])
             fontstyle = config[j]['style']
             color = config[j]['color']
+            print(color)
             obj = fonts.objects.get(name=fontstyle)
             path = obj.path
             font = ImageFont.truetype(path, size=fontsize)
