@@ -18,14 +18,15 @@ canvasElem.addEventListener("mousedown", function (e) {
 });
 
 function draw(ev) {
+f = document.getElementById("uploadimage").files[0],
+url = window.URL || window.webkitURL,
+src = url.createObjectURL(f);
 $("#sec1").hide();
 $("#sec2").show();
 var ctx = document.getElementById('canvas').getContext('2d'),
 img = new Image(),
-f = document.getElementById("uploadimage").files[0],
-url = window.URL || window.webkitURL,
-src = url.createObjectURL(f);
 
+alert(src);
 img.src = src;
 
 img.onload = function() {

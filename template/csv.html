@@ -4,11 +4,7 @@
 <html>
 
 <head>
-    {% if error %}
-    <script>
-        alert('{{error}}');
-    </script>
-    {% endif %}
+   
     {% block title %}
     <title>
         Certificate generator
@@ -17,6 +13,7 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/snackbar.css' %}">
 </head>
 <body >
     <div style="background:url(static/img/bg-pattern.png),#7b4397;background:url(static/img/bg-pattern.png),linear-gradient(to left,#7b4397,#dc2430);" class="nav w3-padding">
@@ -28,6 +25,10 @@
 
 
     <section  style="background:url(static/img/bg-pattern.png),#7b4397;background:url(static/img/bg-pattern.png),linear-gradient(to left,#7b4397,#dc2430);" id="sec1" ></section>
+    <div id="snackBar" class="snackbar snack-show">
+		<span class="snackText" id="snackText"></span>
+		<button class="snack-button" id="snackButton"></button>
+	</div>
     {% block content %}
     <form action="/readdata" class="w3-display-middle" method="post" enctype="multipart/form-data">
             {% csrf_token %}
@@ -38,4 +39,10 @@
     </section>
     
 </body>
+<script src="{% static 'js/snackbar.js' %}"></script>
+{% if error %} 
+<script>
+  showSnackBar("{{error}}",hasAction = false,actionText = String(),isNormal = false,isWarning = true);
+</script>
+{% endif %}
 </html>

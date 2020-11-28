@@ -3,7 +3,15 @@
 <html lang="en">
 
 <head>
-
+  <style>
+    .inmiddle {
+      position: absolute !important;
+      top: 40%;
+      left: 50%;
+      text-align: center;
+      transform: translate(-50%, -50%);
+    }
+  </style>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -17,10 +25,11 @@
   <link rel="stylesheet" href="{% static 'vendor/simple-line-icons/css/simple-line-icons.css' %}">
   <link rel="stylesheet" href="{% static 'device-mockups/device-mockups.min.css' %}">
   <link rel="stylesheet" href="{% static 'css/new-age.min.css' %}">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli">
-  
+
 </head>
 
 <body id="page-top">
@@ -29,130 +38,167 @@
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
       <a class="navbar-brand js-scroll-trigger" href="https://github.com/Developer-Students-Club-ABESEC">DSC ABESEC</a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+        data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+        aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="https://dsc.community.dev/abes-engineering-college/">Our Team</a>
+            <a class="nav-link js-scroll-trigger" href="{% url 'login' %}">Login</a>
           </li>
-          
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="{% url 'signup' %}">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="https://dsc.community.dev/abes-engineering-college/">Our
+              Team</a>
+          </li>
+
         </ul>
       </div>
     </div>
   </nav>
-
   <header class="masthead">
     <div class="container h-100">
       <div class="row h-100">
-        <div class="col-lg-7 my-auto">
-          <div class="header-content mx-auto">
-            
-            <h4>Steps to generate -</br></br>
-              1) Upload the csv file.</br></br>
-              2) Upload the template of certificate</br></br>
-              3) Select point on image and map the coordinate with values such as column name, font size and color.</br></br>
-              4) After the user selects all the points, generate a preview to show.</br></br>
-              5) User verifies the preview and click on the generate all.</br></br>
-              6) All the data is sent to the backend and certificates will be generated.</br></br>
-              7) We will provide an option to either mail the certificate or download the files.</br></br>
-              </h4>
-            
-          </div>
-        </div>
-        <div class="col-lg-5 my-auto">
-          <div class="device-container">
+        <div class="col-lg-7 inmiddle">
+          <div class="header-content mx-auto w3-center">
+
+            <h1>Certificate Generator</h1>
+            <h3>Generate bulk certificates with just three clicks.</h3>
             <a class="btn btn-outline btn-xl js-scroll-trigger">Start Now for Free!</a>
-          </br></br>
-            <a href="{% url 'login' %}" class="btn btn-outline btn-xl js-scroll-trigger">Login</a>
-          </br></br>
-            <a href="{% url 'signup' %}" class="btn btn-outline btn-xl js-scroll-trigger">Signup</a>
-            
+            <a class="btn btn-outline btn-xl js-scroll-trigger" href="#section2">How it Works? </a>
           </div>
         </div>
+        <!-- <div class="col-lg-5 my-auto">
+          <div class="device-container">
+            <h2>Made with love by</h2>
+            <img src="https://i.ibb.co/5rbLbdz/DSC-ABES-Engineering-College-Light-Vertical-Logo.png" alt="DSC ABESEC">
+
+          </div>
+        </div> -->
       </div>
     </div>
   </header>
- <div id ="down">
-  <section class="features" id="features">
-    <div class="container">
-      
-      <div class="row">
-        <div class="col-lg-4 my-auto">
-          <div class="section-heading">
-            <h2>Cool Features!!</h2>
-            <p class="text-muted">Check out what you can do with this certificate generator!</p>
-            <hr>
+  <header class="masthead" id="section2" style="background: rgba(109, 107, 107,0.5); color: #333;">
+    <div class="container h-100">
+      <div class="row h-100">
+        <h1 class="col w3-center">How it Works</h1>
+        <div class="col-lg-7 inmiddle">
+          1) Upload the csv file.</br></br>
+          2) Upload the template of certificate</br></br>
+          3) Select point on image and map the coordinate with values such as column name, font size and
+          color.</br></br>
+          4) After the user selects all the points, generate a preview to show.</br></br>
+          5) User verifies the preview and click on the generate all.</br></br>
+          6) All the data is sent to the backend and certificates will be generated.</br></br>
+          7) We will provide an option to either mail the certificate or download the files.</br></br>
+          </h4>
+          <div class="w3-card-4 w3-white w3-round">
+            <h2 class="number w3-lg">1.</h2>
+            <h3 class="w3-title"> Upload the csv file.</h3>
           </div>
+          <div class="w3-card-4 w3-white w3-round">
+            <h2 class="number w3-lg">2.</h2>
+            <h3 class="w3-title"> Upload the certifcate template.</h3>
+          </div>
+
+        <div class="w3-card-4 w3-white w3-round">
+          <h2 class="number w3-lg">2.</h2>
+          <h3 class="w3-title">Select point on image and map the coordinate with values such as column name, font size and
+            color.</h3>
         </div>
-        <div class="col-lg-8 my-auto">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-lg-4">
-                <div class="feature-item">
-                  <i class="icon-present text-primary"></i>
-                  <h3>Free to Use</h3>
-                  <p class="text-muted">The service is free to a great extent and thus proves to be useful!!</p>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="feature-item">
-                  <i class="icon-lock text-primary"></i>
-                  <h3>Secure</h3>
-                  <p class="text-muted">All your files are secure and nobody else can acess it!!</p>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="feature-item">
-                  <i class="icon-camera text-primary"></i>
-                  <h3>Flexible Use</h3>
-                  <p class="text-muted">You can upload the certificate in any format!!</p>
-                </div>
-              </div>
+        <div class="w3-card-4 w3-white w3-round">
+          <h2 class="number w3-lg">2.</h2>
+          <h3 class="w3-title">Verify the sample image and c</h3>
+        </div>
+
+
+      </div>
+    </div>
+    </div>
+  </header>
+  <div id="down">
+    <section class="features" id="features">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-4 my-auto">
+            <div class="section-heading">
+              <h2>Cool Features!!</h2>
+              <p class="text-muted">Check out what you can do with this certificate generator!</p>
+              <hr>
             </div>
-            <div class="row">
-              
-              
+          </div>
+          <div class="col-lg-8 my-auto">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-lg-4">
+                  <div class="feature-item">
+                    <i class="icon-present text-primary"></i>
+                    <h3>Free to Use</h3>
+                    <p class="text-muted">The service is free to a great extent and thus proves to be useful!!</p>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="feature-item">
+                    <i class="icon-lock text-primary"></i>
+                    <h3>Secure</h3>
+                    <p class="text-muted">All your files are secure and nobody else can acess it!!</p>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="feature-item">
+                    <i class="icon-camera text-primary"></i>
+                    <h3>Flexible Use</h3>
+                    <p class="text-muted">You can upload the certificate in any format!!</p>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+
+
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  
 
-  <section class="contact bg-primary" id="contact">
-    <div class="container">
-      <h2>Let's get social!</h2>
-      <ul class="list-inline list-social">
-        <li class="list-inline-item social-twitter">
-          <a href="#">
-            <i class="fab fa-twitter"></i>
-          </a>
-        </li>
-        <li class="list-inline-item social-facebook">
-          <a href="#">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-        </li>
-        <li class="list-inline-item social-google-plus">
-          <a href="https://www.instagram.com/dsc_abesec/">
-            <i class="fab fa-instagram"></i>
-          </a>
-        </li>
-        <li class="list-inline-item social-facebook">
-          <a href="https://www.linkedin.com/company/dsc-abesec">
-            <i class="fab fa-linkedin"></i>
-          </a>
-        </li>
-        
-      </ul>
-    </div>
-  </section>
-</div>
+
+    <section class="contact bg-primary" id="contact">
+      <div class="container">
+        <h2>Let's get social!</h2>
+        <ul class="list-inline list-social">
+          <li class="list-inline-item social-twitter">
+            <a href="#">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+          <li class="list-inline-item social-facebook">
+            <a href="#">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+          </li>
+          <li class="list-inline-item social-google-plus">
+            <a href="https://www.instagram.com/dsc_abesec/">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </li>
+          <li class="list-inline-item social-facebook">
+            <a href="https://www.linkedin.com/company/dsc-abesec">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+  </div>
   <footer>
     <div class="container">
       <p>&copy; DSC ABESEC 2020. All Rights Reserved.</p>
