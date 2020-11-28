@@ -60,12 +60,9 @@
                 <option value="" style="font-family:'{{i.name}}'">{{i.name}}</option>
                     {% endfor %}
                 </select>
-                <select name="color" id="color">
-                    <option value="rgb(0,0,0)" style="color: black;"><span style="color:Black"><div class="box"></div> Black</span></option>
-                    <option value="rgb(255,0,0)" style="color:red"><span style="color:Black"><div class="box"></div>Red</span></option>
-                    <option value="rgb(0,255,0)" style="color: green;"><span style="color:Black"><div class="box"></div>Green</span></option>
-                    <option value="rgb(0,0,255)" style="color: blue;"><span style="color:Black"><div class="box"></div>Blue</span></option>
-                </select>
+
+                <input type="color" id="color"  name="color">
+
                 <select name="fontsize" id="fontsize">
                 </select>
                 <input type="text" id="coordinates" readonly class="w3-input w3-margin w3-border">
@@ -93,6 +90,7 @@
         $("#forminput form").submit();
         localStorage.clear();
     });
+
 </script>
 {% endblock %}
 </html>
