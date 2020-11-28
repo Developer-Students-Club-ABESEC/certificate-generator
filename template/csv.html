@@ -4,6 +4,11 @@
 <html>
 
 <head>
+    {% if error %}
+    <script>
+        alert('{{error}}');
+    </script>
+    {% endif %}
     {% block title %}
     <title>
         Certificate generator
@@ -11,7 +16,7 @@
     {% endblock %}  
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body >
     <div style="background:url(static/img/bg-pattern.png),#7b4397;background:url(static/img/bg-pattern.png),linear-gradient(to left,#7b4397,#dc2430);" class="nav w3-padding">
@@ -26,7 +31,7 @@
     {% block content %}
     <form action="/readdata" class="w3-display-middle" method="post" enctype="multipart/form-data">
             {% csrf_token %}
-        <input type='file' name='csv'  id='uploadcsv' />
+        <input type='file' name='csv' accept=".csv"  id='uploadcsv' />
         <button class="w3-button w3-blue w3-round ">Upload</button>
     </form>
     {% endblock %}

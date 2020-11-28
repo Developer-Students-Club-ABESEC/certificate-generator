@@ -18,7 +18,7 @@
 
     {% block content %}
     <section id="sec1">
-        <input type='file' class="w3-display-middle" name='img' size='65' id='uploadimage' />
+        <input type='file' accept="image/*" class="w3-display-middle" name='img' size='65' id='uploadimage' />
     </section>
     <div id="forminput">
         <form action="/generate" style="display:none" method="post" enctype="multipart/form-data">
@@ -75,7 +75,7 @@
     </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="{% static 'script.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
 <script>
     window.addEventListener("load",()=>{
         for(counter=10;counter<72;counter+=2){

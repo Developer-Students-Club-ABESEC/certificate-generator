@@ -25,6 +25,10 @@ def index(request):
 
 def readata(request):
     csvFilePath = request.FILES["csv"]
+    print(csvFilePath.name)
+    name,extn = csvFilePath.name.split(".")
+    if(extn!="csv"):
+        return render(request,"csv.html",{"error":"The file type is not correct"})
     file_data = csvFilePath.read().decode("utf-8")
     file_data = file_data.strip("\n")
     file_data = file_data.strip(" ")
@@ -41,7 +45,6 @@ def readata(request):
             dic[keys[j]] = temp[j]
         response[i] = dic
     key = genkey()
-    print(key)
     obj = csvdata.objects.create(key=key,details=response)
     obj.save()
     fontfiles = fonts.objects.all()
@@ -76,7 +79,6 @@ def writeonimage(request):
             fontsize = int(config[j]['size'])
             fontstyle = config[j]['style']
             color = config[j]['color']
-            print(color)
             obj = fonts.objects.get(name=fontstyle)
             path = obj.path
             font = ImageFont.truetype(path, size=fontsize)
@@ -97,7 +99,6 @@ def addfont():
                 name,extension = i.split(".")
                 obj = fonts.objects.create(name=name,path=folder+"/"+str(i))
                 obj.save()
-                print("added "+i)
 
 
 class SignUpView(generic.CreateView):
