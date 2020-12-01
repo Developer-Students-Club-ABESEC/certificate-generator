@@ -9,6 +9,15 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 # Create your views here.
+
+def handler404(request,exception):
+    return render(request, '404.html')
+
+
+def handler500(request):
+    return render(request, '500.html')
+
+
 def genkey():
     x = datetime.now()
     x = str(x)
@@ -21,7 +30,7 @@ def index(request):
         return render(request,"csv.html")
     else:
         return render(request,"index.html")
-        
+
 
 def readata(request):
     csvFilePath = request.FILES["csv"]
@@ -50,7 +59,7 @@ def readata(request):
     fontfiles = fonts.objects.all()
     return render(request,"canvas.html",{"secret":key,"headers":keys,"fonts":fontfiles})
 
-    
+
 
 def writeonimage(request):
     image = request.POST["image"]
@@ -60,16 +69,16 @@ def writeonimage(request):
     imagefile = ContentFile(base64.b64decode(image), name=key+".png")
     obj = saveimage.objects.create(photo=imagefile,key=key)
     obj.save()
-    img = Image.open(os.getcwd()+'/media/images/'+key+'.png')
+    img = Image.open(os.getcwd()+'/certificate-generator/media/images/'+key+'.png')
     try:
         obj = csvdata.objects.get(key=key)
     except:
         return HttpResponse("Some error occured. Please try again later")
     data = obj.details
-    resultpath="media/result"+key
+    resultpath=os.getcwd()+"/certificate-generator/media/result"+key
     os.mkdir(resultpath)
     for i in data.keys():
-        img = Image.open(os.getcwd()+'/media/images/'+key+'.png')
+        img = Image.open(os.getcwd()+'/certificate-generator/media/images/'+key+'.png')
         draw = ImageDraw.Draw(img)
         for j in config.keys():
             x = int(config[j]['x'])
@@ -84,21 +93,25 @@ def writeonimage(request):
             font = ImageFont.truetype(path, size=fontsize)
             draw.text((x, y), message, fill=color, font=font)
             img.save(resultpath+"/"+str(key)+str(i)+".png")
-    downloadpath =  shutil.make_archive("media/"+key,"zip",resultpath)
+    downloadpath =  shutil.make_archive(os.getcwd()+"/certificate-generator/media/"+key,"zip",resultpath)
     return render(request,"result.html",{"download":key})
 
-def result(request):
-    return render(request,"result.html")
+
 
 def addfont():
-    folder  = "./static/font"
+    folder  = os.getcwd()+"/certificate-generator/static/font"
     disp = []
     if(os.path.exists(folder)):
         lis = os.listdir(folder)
         for i in lis:
                 name,extension = i.split(".")
-                obj = fonts.objects.create(name=name,path=folder+"/"+str(i))
+                obj = fonts.objects.create(name=name,path=folder+"/"+str(i),fpath="/static/font/"+str(i))
                 obj.save()
+
+# def delfonts():
+#     obj = fonts.objects.all()
+#     for i in obj:
+#         i.delete()
 
 
 class SignUpView(generic.CreateView):

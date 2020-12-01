@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html style="scroll-behavior:smooth">
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Certificate generator</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendor/fontawesome-free/css/all.min.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{% static 'vendor/simple-line-icons/css/simple-line-icons.css' %}">
+  <link rel="stylesheet" href="{% static 'device-mockups/device-mockups.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/new-age.min.css' %}">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli">
+
+</head>
+
+
+
+
+          <div class="header-content mx-auto" style="height:100%;width:100%;background:url('/static/img/bg-pattern.png'),linear-gradient(to left,#7b4397,#dc2430);">
+            <div class="content w3-display-middle w3-center">
+           {% block content %}
+            <span style="font-size:100px">Error 404</span>
+            <h3>The link you are trying to access is either broken or does not exist</h3>
+            <a class="btn btn-outline btn-xl js-scroll-trigger" href="/">Return to home</a>
+            {% endblock %}
+          </div>
+          </div>
+
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'vendor/jquery/jquery.min.js'%}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js'%}"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="{% static 'js/new-age.min.js' %}"></script>
+
+</body>
+
+</html>

@@ -13,3 +13,4 @@ class saveimage(models.Model):
 class fonts(models.Model):
     name = models.CharField(max_length=1000, unique=True, null=False)
     path = models.CharField(max_length=10000,unique=True, null=False)
+    fpath = models.CharField(max_length=10000,unique=True, null=False)

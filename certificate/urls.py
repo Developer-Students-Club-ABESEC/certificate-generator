@@ -7,6 +7,5 @@ urlpatterns = [
     path('gencertificate',views.writeonimage,name="bulk creator"),
     path('readdata',views.readata,name="Read from csv"),
     path("generate",views.writeonimage,name="start writing"),
-    path("result",views.result,name='result'),
     path('accounts/signup/', SignUpView.as_view(), name='signup'),
 ]

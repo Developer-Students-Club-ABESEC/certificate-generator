@@ -23,10 +23,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ruyj-9%$gcl%j%&57a-odp1-l@0aomrgh-z1t0omzbbas$jb87'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
-# ALLOWED_HOSTS = ['easyfiles.pythonanywhere.com']
+# ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['easyfiles.pythonanywhere.com']
 
 
 
@@ -125,12 +125,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,"static")
-]
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR,"static")
+# ]
 
-# STATIC_ROOT = '/home/easyfiles/certificate-generator/static/'
+STATIC_ROOT = '/home/easyfiles/certificate-generator/static/'
 
 
 MEDIA_URL = "/media/"
-MEDIA_ROOT = os.path.join(BASE_DIR,"media")
+MEDIA_ROOT = '/home/easyfiles/certificate-generator/media/'
