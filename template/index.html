@@ -84,6 +84,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli">
+  <link rel="icon" href="{% static "img/logo.png" %}" type="image/x-icon">
 
 </head>
 
@@ -121,7 +122,7 @@
       <div class="row h-100">
         <div class="col-lg-7 inmiddle">
           <div class="header-content mx-auto w3-center">
-
+            <img src="{% static 'img/logo.png' %}" height="200" alt="Certifcate Generator" title="Logo">
             <h1>Certificate Generator</h1>
             <h3>Generate bulk certificates with just three clicks.</h3>
             <a class="btn btn-outline btn-xl js-scroll-trigger" href="{% url 'login' %}">Get Started</a>
