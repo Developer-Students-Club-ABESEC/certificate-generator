@@ -127,7 +127,3 @@ def signup(request):
     else:
         form = SignUpForm()
     return render(request, 'registration/signup.html', {'form': form})
-
-def resetuser(request):
-    user_key = request.POST["username"]
-    obj = user.objects.get(username=user_key)
