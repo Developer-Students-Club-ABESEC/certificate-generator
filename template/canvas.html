@@ -17,18 +17,23 @@
     {% endblock %}
    
     {% block content %}
-    <div id="loader" class="center"></div> 
+    <div id="loader" style="z-index: 9999;" class="center"></div> 
     <section id="sec1">
             <div class="container" style="margin-top: 5%; padding-left: 40%;width: 70%;">
                 <div class="col" style="justify-content: space-evenly; width: 65%;">
                   <div class="w3-card w3-white w3-padding-32 w3-round col-lg-3">
-                    <div style="padding-left: 10%;" class="feature-item">
-                      <i class="fa fa-cloud-upload"></i>
-                      <h3 class="text">Upload CSV File containing records</h3>
+                    <div  class="feature-item w3-center">
+                      <i class="w3-center fa fa-file-image-o"></i>
+                      <h3 class="text">Upload certifcate template</h3>
+                      <div class="button-wrap">
+                        <label class ="new-button" for="uploadimage"><i class="fa fa-upload" style="font-size: 18px;padding:10px; height: 40px; width: 40px;"></i> Upload Template
+                            <input type='file' accept="image/*" class="w3-margin" name='img' size='65' id='uploadimage' />
+                      <div>
+                      
                     </div>
                 </div>
               </div>
-        <input type='file' accept="image/*" class="w3-display-middle" name='img' size='65' id='uploadimage' />
+      
     </section>
     <div id="forminput">
         <form action="/generate" style="display:none" method="post" enctype="multipart/form-data">
@@ -99,6 +104,7 @@
         $("#config").val(JSON.stringify(config));
         $("#forminput form").submit();
         localStorage.clear();
+        $("#loader").show();
     });
 
 </script>
