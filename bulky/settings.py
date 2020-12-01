@@ -72,8 +72,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'bulky.wsgi.application'
 
-EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
-
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 # Database
@@ -134,3 +132,10 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR,"media")
+
+EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'info.svastik@gmail.com'
+EMAIL_HOST_PASSWORD = 'Svastik@0206'
