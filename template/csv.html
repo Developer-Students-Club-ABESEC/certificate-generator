@@ -62,9 +62,9 @@
 <body >
   
     <div style="background:url(static/img/bg-pattern.png),#7b4397;background:url(static/img/bg-pattern.png),linear-gradient(to left,#7b4397,#dc2430);" class="nav w3-padding">
-    <span style="color:azure; font-size: 20px; font-weight:bold;font-family: 'Courier New', Courier, monospace;text-transform: capitalize;" > Hi {{ user.username }}!</span>
+    <span style="color:azure; font-size: 20px; font-weight:bold;font-family: 'Courier New', Courier, monospace;text-transform: capitalize;" > Hi {{ user.first_name }} {{user.last_name}}!</span>
     <a style="color: black;font-size: 15pt;" href="https://dsc.community.dev/abes-engineering-college/"><img src="https://i.ibb.co/3SQDQgM/DSC-ABES-Engineering-College-Light-Horizontal-Logo.png" alt="DSC-ABES-Engineering-College-Light-Horizontal-Logo" width="300" height="50" border="0"></a>
-    <button class="w3-btn w3-pale-red w3-round-large"><a style="text-decoration: none;" href="{% url 'logout' %}">Log Out <i class="fa fa-arrow-right"></i></a></button>
+    <a style="text-decoration: none;" href="{% url 'logout' %}"><button class="w3-btn w3-pale-red w3-round-large">Log Out <i class="fa fa-arrow-right"></i></button></a>
     </div>
     
 
