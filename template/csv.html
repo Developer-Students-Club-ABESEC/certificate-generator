@@ -14,8 +14,53 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/snackbar.css' %}">
+    <style>
+    .w3-card i {
+      background-color: #3b5998;
+      width:70px;
+      height:70px;
+      font-size: 30px;
+      border-radius: 100%;
+      padding:20px;
+      color: #fff;
+    }
+    .w3-card{
+      width: calc(25% -16px);
+      flex : 0 0 20% !important;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+    .w3-card:hover {
+      background-color: rgb(228, 220, 220) !important;
+      transform: translate3d(40px);
+    }
+    #loader { 
+            border: 12px solid #f3f3f3; 
+            border-radius: 50%; 
+            border-top: 12px solid #444444; 
+            width: 70px; 
+            height: 70px; 
+            animation: spin 1s linear infinite; 
+        } 
+          
+        @keyframes spin { 
+            100% { 
+                transform: rotate(360deg); 
+            } 
+        } 
+          
+        .center { 
+            position: absolute; 
+            top: 0; 
+            bottom: 0; 
+            left: 0; 
+            right: 0; 
+            margin: auto; 
+        } 
+    </style>
 </head>
 <body >
+  
     <div style="background:url(static/img/bg-pattern.png),#7b4397;background:url(static/img/bg-pattern.png),linear-gradient(to left,#7b4397,#dc2430);" class="nav w3-padding">
     <span style="color:azure; font-size: 20px; font-weight:bold;font-family: 'Courier New', Courier, monospace;text-transform: capitalize;" > Hi {{ user.username }}!</span>
     <a style="color: black;font-size: 15pt;" href="https://dsc.community.dev/abes-engineering-college/"><img src="https://i.ibb.co/3SQDQgM/DSC-ABES-Engineering-College-Light-Horizontal-Logo.png" alt="DSC-ABES-Engineering-College-Light-Horizontal-Logo" width="300" height="50" border="0"></a>
@@ -30,19 +75,37 @@
 		<button class="snack-button" id="snackButton"></button>
 	</div>
     {% block content %}
-    <form action="/readdata" class="w3-display-middle" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-        <input type='file' name='csv' accept=".csv"  id='uploadcsv' />
-        <button class="w3-button w3-blue w3-round ">Upload</button>
-    </form>
+    <section style="padding-left: 40%;margin-top: 3%;" class="contact bg-primary"  id="section2">
+     
+      <div  class="container">
+        <div class="container" style="margin-top: 30px;width: 65%;">
+            <div class="col" style="justify-content: space-evenly; width: 50%;">
+              <div class="w3-card w3-white w3-padding-32 w3-round col-lg-3">
+                <div style="padding-left: 10%;" class="feature-item">
+                  <i class="fa fa-cloud-upload"></i>
+                  <h3 class="text">Upload CSV File containing records</h3>
+                </div>
+            </div>
+          </div>
+      </div>
+      
+    </section>
+    <form  action="/readdata" class="w3-display-middle" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+  <input type='file' name='csv' accept=".csv"  id='uploadcsv' />
+  <button class="w3-button w3-blue w3-round ">Upload</button>
+  </form>
+    
     {% endblock %}
     </section>
     
 </body>
 <script src="{% static 'js/snackbar.js' %}"></script>
+
 {% if error %} 
 <script>
   showSnackBar("{{error}}",hasAction = false,actionText = String(),isNormal = false,isWarning = true);
 </script>
+
 {% endif %}
 </html>
