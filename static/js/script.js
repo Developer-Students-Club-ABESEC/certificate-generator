@@ -19,8 +19,8 @@ canvasElem.addEventListener("mousedown", function (e) {
 
 function draw(ev) {
 
-$("#sec1").hide();
-$("#sec2").show();
+document.getElementById("sec1").style.display = "none";
+$("#loader").show();
 var ctx = document.getElementById('canvas').getContext('2d'),
 img = new Image(),
 f = document.getElementById("uploadimage").files[0],
@@ -34,6 +34,8 @@ ctx.drawImage(img, 0, 0,842,595);
 image = document.getElementById('canvas').toDataURL().replace('data:image/png;base64,', "");
 url.revokeObjectURL(src);
 }
+$("#loader").hide();
+$("#sec2").show();
 }
 
 
