@@ -56,7 +56,7 @@ python manage.py runserver
 Rajat Shrivastava
 
 <p align="center">
-<img src = "https://avatars3.githubusercontent.com/u/51124175?s=460&u=886dacbae38ee794e54deab165ab9bcfeecbeb13&v=4" width="180" height="150" alt="Rajat Shrivastava">
+<img src = "https://avatars3.githubusercontent.com/u/51124175?s=460&u=886dacbae38ee794e54deab165ab9bcfeecbeb13&v=4" width="180" height="175" alt="Rajat Shrivastava">
 </p>
 <p align="center">
 <a href = "https://github.com/rajat-0206"><img src = "http://www.iconninja.com/files/241/825/211/round-collaboration-social-github-code-circle-network-icon.svg" width="36" height = "36" alt="GitHub"/></a>
@@ -72,7 +72,7 @@ Rajat Shrivastava
 Shreyansh Shukla
 
 <p align="center">
-<img src = "https://avatars0.githubusercontent.com/u/50966899?s=400&u=8ea203aa0e294766d55c7251344b3cd5fc3d997e&v=4" width="`180" height="150" alt="Shreyansh Shukla">
+<img src = "https://avatars0.githubusercontent.com/u/50966899?s=400&u=8ea203aa0e294766d55c7251344b3cd5fc3d997e&v=4" width="`180" height="175" alt="Shreyansh Shukla">
 </p>
 <p align="center">
 <a href = "https://github.com/shreyansh-05"><img src = "http://www.iconninja.com/files/241/825/211/round-collaboration-social-github-code-circle-network-icon.svg" width="36" height = "36" alt="GitHub"/></a>
@@ -90,7 +90,8 @@ Shreyansh Shukla
 Pratyush Saxena
 
 <p align="center">
-<img src = "https://i.ibb.co/rkkz9hm/DSC-Logo.png" width="180" height="150" alt="Pratyush Saxena">
+
+<img src = "https://user-images.githubusercontent.com/52444607/113394549-10caf700-93b6-11eb-8577-bc7590d620ec.jpg" width="180" height="175" alt="Pratyush Saxena">
 </p>
 <p align="center">
 <a href = "https://github.com/Pratyush-Saxena"><img src = "http://www.iconninja.com/files/241/825/211/round-collaboration-social-github-code-circle-network-icon.svg" width="36" height = "36" alt="GitHub"/></a>
@@ -107,7 +108,7 @@ Pratyush Saxena
 Vaibhav Sharma
 
 <p align="center">
-<img src = "https://avatars0.githubusercontent.com/u/51864232?s=400&u=451ff233d803437d5628220fc9a2a7f467b39a75&v=4" width="180" height="150" alt="Vaibhav Sharma">
+<img src = "https://avatars0.githubusercontent.com/u/51864232?s=400&u=451ff233d803437d5628220fc9a2a7f467b39a75&v=4" width="180" height="175" alt="Vaibhav Sharma">
 </p>
 <p align="center">
 <a href = "https://github.com/vaibhav89000"><img src = "http://www.iconninja.com/files/241/825/211/round-collaboration-social-github-code-circle-network-icon.svg" width="36" height = "36" alt="GitHub"/></a>
